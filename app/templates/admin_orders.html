@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}إدارة الطلبات - متجر ملتيارا{% endblock %}
+
+{% block content %}
+<h1>إدارة الطلبات</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>رقم الطلب</th>
+            <th>المستخدم</th>
+            <th>المنتج</th>
+            <th>الكمية</th>
+            <th>السعر الإجمالي</th>
+            <th>الحالة</th>
+            <th>الإجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.user.username }}</td>
+            <td>{{ order.abaya.name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.total_price }}</td>
+            <td>{{ order.status }}</td>
+            <td>
+                <select onchange="updateOrderStatus({{ order.id }}, this.value)">
+                    <option value="pending" {% if order.status == 'pending' %}selected{% endif %}>قيد الانتظار</option>
+                    <option value="processing" {% if order.status == 'processing' %}selected{% endif %}>قيد المعالجة</option>
+                    <option value="shipped" {% if order.status == 'shipped' %}selected{% endif %}>تم الشحن</option>
+                    <option value="delivered" {% if order.status == 'delivered' %}selected{% endif %}>تم التسليم</option>
+                </select>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

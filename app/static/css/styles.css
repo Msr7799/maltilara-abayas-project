@@ -1,0 +1,103 @@
+/* الأنماط الأساسية */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    direction: rtl;
+}
+
+header {
+    background: #f4f4f4;
+    padding: 1rem;
+}
+
+.logo {
+    width: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+main {
+    padding: 2rem;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* أنماط الصفحة الرئيسية */
+.featured-abayas {
+    display: flex;
+    justify-content: space-between;
+}
+
+.abaya-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.abaya-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* أنماط صفحة المعرض */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* أنماط صفحة المنتج */
+.product-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-info {
+    flex: 1;
+    padding: 1rem;
+}
+
+/* أنماط نموذج الدفع */
+.payment-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+/* أنماط لوحة التحكم */
+.admin-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}

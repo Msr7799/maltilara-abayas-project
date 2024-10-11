@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}التسجيل - متجر ملتيارا{% endblock %}
+
+{% block content %}
+<h1>التسجيل</h1>
+
+<form action="{{ url_for('auth.register') }}" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.username.label }}
+        {{ form.username() }}
+    </div>
+    <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email() }}
+    </div>
+    <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password() }}
+    </div>
+    <div class="form-group">
+        {{ form.password2.label }}
+        {{ form.password2() }}
+    </div>
+    <button type="submit">التسجيل</button>
+</form>
+
+<p>لديك حساب بالفعل؟ <a href="{{ url_for('auth.login') }}">سجل الدخول</a></p>
+{% endblock %}

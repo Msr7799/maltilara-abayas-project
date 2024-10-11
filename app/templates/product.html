@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ abaya.name }} - متجر ملتيارا{% endblock %}
+
+{% block content %}
+<div class="product-details">
+    <div class="product-image">
+        <img src="{{ abaya.image_url }}" alt="{{ abaya.name }}">
+    </div>
+    <div class="product-info">
+        <h1>{{ abaya.name }}</h1>
+        <p>{{ abaya.description }}</p>
+        <p>السعر: {{ abaya.price }} ريال</p>
+        <button onclick="addToCart({{ abaya.id }})">أضف إلى السلة</button>
+    </div>
+</div>
+
+<section id="reviews">
+    <h2>تقييمات العملاء</h2>
+    {% for review in reviews %}
+    <div class="review">
+        <p>التقييم: {{ review.rating }} / 5</p>
+        <p>{{ review.comment }}</p>
+    </div>
+    {% endfor %}
+
+    <form id="review-form" action="{{ url_for('main.submit_review') }}" method="post">
+        <h3>أضف تقييمك</h3>
+        <div class="form-group">
+            <label for="rating">التقييم:</label>
+            <select name="rating" id="rating" required>
+                <option value="5">5 نجوم</option>
+                <option value="4">4 نجوم</option>
+                <option value="3">3 نجوم</option>
+                <option value="2">2 نجوم</option>
+                <option value="1">1 نجمة</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="comment">التعليق:</label>
+            <textarea name="comment" id="comment" required></textarea>
+        </div>
+        <button type="submit">إرسال التقييم</button>
+    </form>
+</section>
+{% endblock %}

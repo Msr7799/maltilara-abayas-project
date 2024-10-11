@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}إدارة العبايات - متجر ملتيارا{% endblock %}
+
+{% block content %}
+<h1>إدارة العبايات</h1>
+
+<a href="{{ url_for('admin.add_abaya') }}" class="button">إضافة عباية جديدة</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>الاسم</th>
+            <th>السعر</th>
+            <th>المخزون</th>
+            <th>الإجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for abaya in abayas %}
+        <tr>
+            <td>{{ abaya.name }}</td>
+            <td>{{ abaya.price }}</td>
+            <td>{{ abaya.stock }}</td>
+            <td>
+                <a href="{{ url_for('admin.edit_abaya', id=abaya.id) }}">تعديل</a>
+                <a href="{{ url_for('admin.delete_abaya', id=abaya.id) }}" onclick="return confirm('هل أنت متأكد من حذف هذه العباية؟');">حذف</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}الصفحة الرئيسية - متجر ملتيارا للعبايات{% endblock %}
+
+{% block content %}
+<h1>مرحبًا بكم في متجر ملتيارا للعبايات</h1>
+
+<section class="featured-abayas">
+    <h2>العبايات المميزة</h2>
+    {% for abaya in featured_abayas %}
+    <div class="abaya-item">
+        <img src="{{ abaya.image_url }}" alt="{{ abaya.name }}">
+        <h3>{{ abaya.name }}</h3>
+        <p>السعر: {{ abaya.price }} ريال</p>
+        <button onclick="addToCart({{ abaya.id }})">أضف إلى السلة</button>
+    </div>
+    {% endfor %}
+</section>
+
+<section id="about">
+    <h2>عن الشركة</h2>
+    <p>متجر ملتيارا للعبايات هو وجهتك الأولى للعبايات الأنيقة والعصرية...</p>
+</section>
+
+<section id="contact">
+    <h2>اتصل بنا</h2>
+    <p>يمكنك التواصل معنا عبر:</p>
+    <ul>
+        <li>الهاتف: 123456789</li>
+        <li>البريد الإلكتروني: info@maltelara.com</li>
+    </ul>
+</section>
+{% endblock %}

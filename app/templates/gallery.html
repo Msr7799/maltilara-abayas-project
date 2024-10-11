@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}معرض العبايات - متجر ملتيارا{% endblock %}
+
+{% block content %}
+<h1>معرض العبايات</h1>
+
+<div class="gallery">
+    {% for abaya in abayas %}
+    <div class="abaya-item">
+        <img src="{{ abaya.image_url }}" alt="{{ abaya.name }}">
+        <h3>{{ abaya.name }}</h3>
+        <p>السعر: {{ abaya.price }} ريال</p>
+        <a href="{{ url_for('main.product', id=abaya.id) }}">عرض التفاصيل</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

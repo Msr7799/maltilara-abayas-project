@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}الدفع - متجر ملتيارا{% endblock %}
+
+{% block content %}
+<h1>إتمام الطلب</h1>
+
+<div class="selected-product">
+    <h2>المنتج المختار</h2>
+    <p>{{ abaya.name }} - {{ abaya.price }} ريال</p>
+</div>
+
+<form id="payment-form" class="payment-form" action="{{ url_for('main.process_payment') }}" method="post">
+    <div class="form-group">
+        <label for="name">الاسم الكامل:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="address">العنوان:</label>
+        <input type="text" id="address" name="address" required>
+    </div>
+    <div class="form-group">
+        <label for="card-number">رقم البطاقة:</label>
+        <input type="text" id="card-number" name="card-number" required>
+    </div>
+    <div class="form-group">
+        <label for="expiry-date">تاريخ انتهاء الصلاحية:</label>
+        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+    </div>
+    <div class="form-group">
+        <label for="cvv">رمز الأمان (CVV):</label>
+        <input type="text" id="cvv" name="cvv" required>
+    </div>
+    <button type="submit">إتمام الدفع</button>
+</form>
+{% endblock %}

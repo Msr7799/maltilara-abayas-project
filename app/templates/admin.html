@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}لوحة التحكم - متجر ملتيارا{% endblock %}
+
+{% block content %}
+<h1>لوحة التحكم</h1>
+
+<div class="admin-dashboard">
+    <section id="manage-abayas">
+        <h2>إدارة العبايات</h2>
+        <a href="{{ url_for('admin.admin_abayas') }}" class="button">عرض جميع العبايات</a>
+        <a href="{{ url_for('admin.add_abaya') }}" class="button">إضافة عباية جديدة</a>
+    </section>
+
+    <section id="manage-orders">
+        <h2>إدارة الطلبات</h2>
+        <a href="{{ url_for('admin.admin_orders') }}" class="button">عرض جميع الطلبات</a>
+    </section>
+</div>
+{% endblock %}
